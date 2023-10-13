@@ -1,5 +1,3 @@
-
-    let cpuChoice = getComputerChoice();
     let playerScore = 0;
     let cpuScore = 0;
 
@@ -76,11 +74,11 @@
         do{
             console.log(roundGame(getUserChoice(),getComputerChoice()));
             console.log('Player:'+ playerScore + 'CPU:'+ cpuScore)
-            if(playerScore == 50)
+            if(playerScore == 5)
             {
                 return 'You Won the Game';
             }
-            if(cpuScore == 50)
+            if(cpuScore == 5)
             {
                 return 'You Lose the Game';
             }
