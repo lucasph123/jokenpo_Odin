@@ -1,15 +1,6 @@
     let playerScore = 0;
     let cpuScore = 0;
 
-
-    function getUserChoice()
-    {
-        let choice = prompt();
-        choice = choice[0].toUpperCase() + choice.slice(1).toLowerCase();
-        return choice;
-    }
-
-
     function getComputerChoice()
     {
         let choice = Math.floor(Math.random()*3);
@@ -26,52 +17,94 @@
             return 'Scissor';
         }
     }
+    
+    const textScore = document.querySelector('.results');
+    const resultDiv = document.createElement('p');
+    const scoreDiv = document.createElement('p');
+    textScore.appendChild(resultDiv);
+    textScore.appendChild(scoreDiv);
+    const btnReset = document.createElement('button')
+    btnReset.textContent = 'Resetar';
+    textScore.appendChild(btnReset);
+
+    btnReset.addEventListener('click', () => 
+    {
+        resultDiv.textContent = '';
+        scoreDiv.textContent = '';
+        cpuScore=0;
+        playerScore=0;
+        })
+    
+
 
     function roundGame(player,cpu)
     {
-        if(player == cpu)
+        if(cpuScore == 5 || playerScore == 5)
         {
-            return 'Tie'
-        }
-        if(player == 'Rock' && cpu == 'Paper')
-        {
-            cpuScore++;
-            return 'You Lose, Rock loses to Paper';
-
-        }
-        if(player == 'Paper' && cpu == 'Scissor')
-        {
-            cpuScore++;
-            return 'You Lose, Paper loses to Scissor';
-        }
-        if(player == 'Scissor' && cpu == 'Rock')
-        {
-            cpuScore++;
-            return 'You Lose, Scissor loses to Rock';
-        }
-
-        if(player == 'Paper' && cpu == 'Rock')
-        {
-            playerScore++;
-            return 'You Won, Paper beats Rock';
-        }
-        if(player == 'Scissor' && cpu == 'Paper')
-        {
-            playerScore++;
-            return 'You Won, Scissor beats Paper';
-        }
-        if(player == 'Rock' && cpu == 'Scissor')
-        {
-            playerScore++;
-            return 'You Won, Rock beats Scissor';
+            resultDiv.textContent = 'You won, Congratulations';
+            scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
         }
         else
-        return 'ERROR, WRONG INPUT';
+        {
+        
+            if(player == cpu)
+            {
+                resultDiv.textContent = 'Tie';
+                scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
+                return;
+            }
+            if(player == 'Rock' && cpu == 'Paper')
+            {
+                cpuScore++;
+                resultDiv.textContent = 'You lose, Rock loses to Paper';
+                scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
+                return;
+
+            }
+            if(player == 'Paper' && cpu == 'Scissor')
+            {
+                cpuScore++;
+                resultDiv.textContent = 'You Lose, Paper loses to Scissor';
+                scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
+                return ;
+            }
+            if(player == 'Scissor' && cpu == 'Rock')
+            {
+                cpuScore++;
+                resultDiv.textContent = 'You Lose, Scissor loses to Rock';
+                scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
+                return ;
+            }
+
+            if(player == 'Paper' && cpu == 'Rock')
+            {
+                playerScore++;
+                resultDiv.textContent = 'You Won, Paper beats Rock';
+                scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
+                return ;
+            }
+            if(player == 'Scissor' && cpu == 'Paper')
+            {
+                playerScore++;
+                resultDiv.textContent = 'You Won, Scissor beats Paper';
+                scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
+                return ;
+            }
+            if(player == 'Rock' && cpu == 'Scissor')
+            {
+                playerScore++;
+                resultDiv.textContent = 'You Won, Rock beats Scissor';
+                scoreDiv.textContent = 'Player:' + playerScore + 'CPU:' + cpuScore;
+                return ;
+            }
+            else
+            return 'ERROR, WRONG INPUT';
+        }
    }
 
-    function game()
+  /*  function game()
     {
-        do{
+      do{
             console.log(roundGame(getUserChoice(),getComputerChoice()));
             console.log('Player:'+ playerScore + 'CPU:'+ cpuScore)
             if(playerScore == 5)
@@ -83,9 +116,8 @@
                 return 'You Lose the Game';
             }
         }while(true);
-           
         
-            
-    }
+    } */
 
-            console.log(game());
+
+    

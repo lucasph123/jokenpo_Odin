@@ -1,0 +1,32 @@
+
+.title
+{
+    width: auto;
+    height:100px;
+    text-align: center;
+    font-size: 100px;
+    margin: 50px;
+}
+
+
+.btn-box
+{
+    text-align: center;
+}
+
+
+button {
+    font-size: 50px;
+    height: 100px;
+    width: 200px;
+    margin: 20px;
+}
+
+.results
+{
+    width: auto;
+    height:100px;
+    text-align: center;
+    font-size: 100px;
+    margin: 50px;
+}
